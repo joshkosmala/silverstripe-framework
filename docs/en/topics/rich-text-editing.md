@@ -70,6 +70,14 @@ Buttons can also be removed:
 	// File: mysite/_config.php
 	HtmlEditorConfig::get('cms')->removeButtons('tablecontrols', 'blockquote', 'hr');
 
+To remove all buttons and separators, first set all lines to be configured empty. Then re add buttons as needed:
+
+	:::php
+	// File mysite/_config.php
+	HtmlEditorConfig::get('cms')->setButtonsForLine(1, array());
+	HtmlEditorConfig::get('cms')->setButtonsForLine(2, array());
+	HtmlEditorConfig::get('cms')->setButtonsForLine(1, "bold", "italic", "link", "unlink");
+
 Note: internally `[api:HtmlEditorConfig]` uses the TinyMCE's `theme_advanced_buttons` option to configure these. See
 the [TinyMCE documentation of this option](http://www.tinymce.com/wiki.php/Configuration:theme_advanced_buttons_1_n)
 for more details.
